@@ -1,0 +1,213 @@
+/* ============================================================
+   Hero Section Styles
+   ============================================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Background glow orbs */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(139,92,246,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.25);
+  color: var(--text-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: slide-in-up 0.5s ease both;
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--violet);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.hero-headline {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  animation: slide-in-up 0.5s ease 0.1s both;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+  animation: slide-in-up 0.5s ease 0.2s both;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+  animation: slide-in-up 0.5s ease 0.3s both;
+}
+
+/* Floating workflow illustration */
+.hero-workflow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  animation: slide-in-up 0.5s ease 0.4s both;
+}
+
+.hero-tool-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card), 0 0 30px rgba(99,102,241,0.1);
+  perspective: 800px;
+}
+
+.hero-tool-card:nth-child(1) { animation: float 4s ease-in-out infinite; }
+.hero-tool-card:nth-child(3) { animation: float-delayed 5s ease-in-out infinite 0.5s; }
+.hero-tool-card:nth-child(5) { animation: float 4.5s ease-in-out infinite 1s; }
+
+.hero-tool-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.hero-tool-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.hero-connector {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 40px;
+}
+
+.connector-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(99,102,241,0.6), rgba(139,92,246,0.6));
+  position: relative;
+  overflow: hidden;
+}
+
+.connector-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+.connector-arrow {
+  color: var(--violet);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+  animation: fade-in 0.6s ease 0.5s both;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--grad-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .hero-workflow { gap: 0; overflow-x: auto; padding-bottom: 8px; }
+  .hero-tool-card { min-width: 90px; padding: 12px 14px; }
+  .hero-connector { min-width: 20px; }
+  .hero-stats { gap: 24px; }
+}

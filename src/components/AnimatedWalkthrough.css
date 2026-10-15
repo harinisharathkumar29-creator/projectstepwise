@@ -1,0 +1,212 @@
+/* ============================================================
+   Animated Walkthrough Styles
+   ============================================================ */
+
+.walkthrough {
+  padding: 80px 0;
+  background: linear-gradient(180deg, transparent, rgba(99,102,241,0.03), transparent);
+}
+
+.walkthrough-player {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* Player header */
+.player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: rgba(0,0,0,0.3);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.player-btn:hover {
+  background: rgba(99,102,241,0.15);
+  border-color: var(--border-glow);
+  color: var(--text-primary);
+}
+
+.player-btn.play-pause {
+  width: 44px;
+  height: 44px;
+  background: var(--grad-hero);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  box-shadow: var(--shadow-button);
+}
+
+.player-btn.play-pause:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(99,102,241,0.5);
+}
+
+.player-step-info {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Progress bar in player */
+.player-progress {
+  height: 3px;
+  background: rgba(255,255,255,0.05);
+  cursor: pointer;
+}
+
+.player-progress-fill {
+  height: 100%;
+  background: var(--grad-hero);
+  transition: width 0.5s ease;
+}
+
+/* Slide */
+.player-slide {
+  padding: 40px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  animation: fade-in 0.4s ease;
+}
+
+.slide-step-num {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.slide-tool-highlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius-md);
+  width: fit-content;
+}
+
+.slide-tool-icon {
+  font-size: 1.2rem;
+}
+
+.slide-tool-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-accent);
+}
+
+.slide-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.slide-action {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.slide-command {
+  margin-top: 16px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.slide-command-text { flex: 1; }
+.slide-cmd-prompt { color: var(--green); margin-right: 8px; }
+
+/* Workflow nodes */
+.workflow-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 16px;
+}
+
+.workflow-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: rgba(0,0,0,0.2);
+  transition: all var(--transition-slow);
+  min-width: 80px;
+}
+
+.workflow-node.active {
+  border-color: var(--indigo);
+  background: rgba(99,102,241,0.1);
+  box-shadow: 0 0 20px rgba(99,102,241,0.15);
+  transform: scale(1.05);
+}
+
+.workflow-node-icon { font-size: 1.4rem; }
+.workflow-node-name { font-size: 0.7rem; font-weight: 600; color: var(--text-muted); }
+.workflow-node.active .workflow-node-name { color: var(--text-accent); }
+
+.workflow-edge {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(99,102,241,0.3), rgba(139,92,246,0.3));
+  flex-shrink: 0;
+  position: relative;
+}
+
+.workflow-edge.active {
+  background: linear-gradient(90deg, var(--indigo), var(--violet));
+  box-shadow: 0 0 8px rgba(99,102,241,0.4);
+}
+
+@media (max-width: 600px) {
+  .player-slide { padding: 24px 20px; }
+  .workflow-node { min-width: 60px; padding: 8px 10px; }
+  .workflow-edge { width: 20px; }
+}
